@@ -1,0 +1,23 @@
+<template>
+  <div>
+  <h1 v-if="level == 1">
+    <slot></slot>
+  </h1>
+  <h2 v-else-if="level == 2">
+    <slot></slot>
+  </h2>
+</div>
+</template>
+
+
+<script>
+export default {
+  props: {
+    level: {
+      type: Number,
+      required: true
+    }
+  }
+};
+</script>
+

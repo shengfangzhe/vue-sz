@@ -25,7 +25,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     clientLogLevel: 'warning',
     before: function(app) {
-      app.use('', restapi);
+      // app.use('', restapi);
     },
     historyApiFallback: {
       rewrites: [

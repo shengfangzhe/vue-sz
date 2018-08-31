@@ -1,6 +1,6 @@
-import instanceMonitorList from '@/instanceMonitor/instanceMonitorList.vue'
-import instanceMonitorView from '@/instanceMonitor/instanceMonitorView.vue'
-import instanceMonitorInfo from '@/instanceMonitor/instanceMonitorInfo.vue'
+import instanceMonitorList from '@/components/instanceMonitor/instanceMonitorList.vue'
+import instanceMonitorView from '@/components/instanceMonitor/instanceMonitorView.vue'
+import instanceMonitorInfo from '@/components/instanceMonitor/instanceMonitorInfo.vue'
 
 
 const instanceMonitor = {

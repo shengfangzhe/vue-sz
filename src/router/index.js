@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import { instanceMonitorRouter } from '@/instanceMonitor/instanceMonitorRouter.js'
-import instanceMonitorList from '@/instanceMonitor/instanceMonitorList.vue'
+import { instanceMonitorRouter } from '@/components/instanceMonitor/instanceMonitorRouter.js'
+import instanceMonitorList from '@/components/instanceMonitor/instanceMonitorList.vue'
 
 
 Vue.use(Router)

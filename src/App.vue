@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import menuTop from "./menuTop/menuTop.vue";
-import menuleft from "./siderbar/siderbar.vue";
+import menuTop from "./components/menuTop/menuTop.vue";
+import menuleft from "./components/siderbar/siderbar.vue";
 
 export default {
   name: "App",

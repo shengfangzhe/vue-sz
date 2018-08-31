@@ -1,6 +1,6 @@
 <template>
   <div class="menu-left">
-    <img src="../assets/images/logo.jpg" alt="logo">
+    <img src="../../assets/images/logo.jpg" alt="logo">
     <h4>第一宇宙</h4>
     <ul class="menu-list">
       <li>

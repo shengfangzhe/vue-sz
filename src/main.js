@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import iView from 'iview'
 import lodash from 'lodash'
-import { commonHttp } from './assets/js/commonHttp'
+import commonHttp from './assets/js/commonHttp'
 
 
 Vue.config.productionTip = false

@@ -1,11 +1,13 @@
 import Axios from 'axios'
 import _ from 'lodash'
 
+const urlPrefix = '/gel/V1/';
+
 function get(url, data) {
   return new Promise(function(resolve, reject) {
     Axios({
       method: 'get',
-      url: url,
+      url: urlPrefix + url,
       data: data
     }).then(response => {
       handle(response, resolve, reject);
@@ -19,7 +21,7 @@ function post(url, data) {
   return new Promise(function(resolve, reject) {
     Axios({
       method: 'post',
-      url: url,
+      url: urlPrefix + url,
       data: data
     }).then(response => {
       handle(response, resolve, reject);
@@ -33,7 +35,7 @@ function put(url, data) {
   return new Promise(function(resolve, reject) {
     Axios({
       method: 'put',
-      url: url,
+      url: urlPrefix + url,
       data: data
     }).then(response => {
       handle(response, resolve, reject);
@@ -47,7 +49,7 @@ function del(url, data) {
   return new Promise(function(resolve, reject) {
     Axios({
       method: 'delete',
-      url: url,
+      url: urlPrefix + url,
       data: data
     }).then(response => {
       handle(response, resolve, reject);
@@ -59,27 +61,28 @@ function del(url, data) {
 
 
 function handle(response, resovle, reject) {
-  if (response.status === 'SUCCESS') {
-    resovle(response.result);
-  } else if (response.status === 'BUSINESS_ERROR') {
-    if (response.userStatus === 'needLogin') {
+  var data = response.data;
+  if (data.status === 'SUCCESS') {
+    resovle(data.result);
+  } else if (data.status === 'BUSINESS_ERROR') {
+    if (data.userStatus === 'needLogin') {
 
     } else {
-      reject(response.message);
+      reject(data.message);
     }
-  } else if (response.status === 'CLIENT_ERROR') {
-    let messages = _.flatMap(response.message.fieldErrorMessage, function(v, k) {
+  } else if (data.status === 'CLIENT_ERROR') {
+    var messages = _.flatMap(data.message.fieldErrorMessage, function(v, k) {
       return v;
     });
     _.join(messages, ',');
-    messages += response.message.crossFieldErrorMessage ? response.message.crossFieldErrorMessage : '';
+    messages += data.message.crossFieldErrorMessage ? data.message.crossFieldErrorMessage : '';
     reject(messages);
   } else {
-    reject(response.message);
+    reject(data.message);
   }
 }
 
-export const commonHttp = {
+export default {
   get,
   post,
   put,

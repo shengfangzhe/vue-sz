@@ -3,6 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var router = express.Router();
 var url = require('url');
+var circularJSON = require('circular-json')
 
 var processFunc = function(req, res, next) {
   var currentUrl = req.url;
@@ -16,7 +17,7 @@ var processFunc = function(req, res, next) {
   res.header('Content-type', 'application/json;charset=utf-8');
   for (var i = pathArr.length; i > 0; i--) {
     var module = pathArr.slice(0, i).join('/');
-    var modulePath = __dirname + '/../resource/' + module + '.js';
+    var modulePath = __dirname + '/../resource' + module + '.js';
     if (fs.existsSync(modulePath)) {
       req.subModule = pathArr.slice(i, pathArr.length).join('/');
       var handler = require(modulePath);

@@ -6,11 +6,15 @@ import router from './router'
 import iView from 'iview'
 import lodash from 'lodash'
 import commonHttp from './assets/js/commonHttp'
+import VueBus from 'vue-bus'
+import 'iview/dist/styles/iview.css';
 
 
 Vue.config.productionTip = false
 
 Vue.use(iView)
+
+Vue.use(VueBus)
 
 Object.defineProperty(Vue.prototype, '_', { value: lodash })
 

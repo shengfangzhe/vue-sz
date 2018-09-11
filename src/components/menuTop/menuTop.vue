@@ -38,7 +38,7 @@ export default {
 }
 .menuTop > div {
   float: left;
-  padding: 10px 40px;
+  padding: 0px 40px;
   width: 500px;
   text-align: left;
 }

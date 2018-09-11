@@ -27,7 +27,7 @@ restModule.processGet = function(req, res, next) {
           "monitorServIp": "10.23.34.34",
           "monitorServport": "23",
           "repeatTimes": "3",
-          "isNormal": "1  1：正常    2：异常",
+          "isNormal": "1",
           "status": "1",
           "notifyEmails": ["1893@qq.com"],
           "notifyPhones": ['18922222222'],

@@ -31,9 +31,21 @@
           <td>{{instanceMonitor.domainName}}</td>
           <td>{{instanceMonitor.monitorServIp}}:{{instanceMonitor.monitorServport}}</td>
           <td>{{instanceMonitor.repeatTimes}}</td>
-          <td>{{instanceMonitor.notifyPhones}}</td>
-          <td>{{instanceMonitor.notifyEmails}}</td>
-          <td>{{instanceMonitor.isNormal}}</td>
+          <td>
+            <div v-for="(notifyPhone,num) in instanceMonitor.notifyPhones" :key="num">
+              {{notifyPhone}}
+            </div>
+            <div v-show="instanceMonitor.notifyPhones.length>2">......</div>
+          </td>
+          <td>
+            <div v-for="(notifyEmail,num) in instanceMonitor.notifyEmails.slice(0,2)" :key="num">
+              {{notifyEmail}}
+            </div>
+            <div v-show="instanceMonitor.notifyEmails.length>2">......</div>
+          </td>
+          <td>
+            <Switch v-model="!!instanceMonitor.isNormal"/>
+          </td>
           <td>操作按钮</td>
         </tr>
       </table>

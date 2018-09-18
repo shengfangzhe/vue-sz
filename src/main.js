@@ -8,6 +8,7 @@ import lodash from 'lodash'
 import commonHttp from './assets/js/commonHttp'
 import VueBus from 'vue-bus'
 import 'iview/dist/styles/iview.css';
+import filters from './assets/js/filters'
 
 
 Vue.config.productionTip = false
@@ -19,6 +20,10 @@ Vue.use(VueBus)
 Object.defineProperty(Vue.prototype, '_', { value: lodash })
 
 Object.defineProperty(Vue.prototype, '$commonHttp', { value: commonHttp })
+
+_.forEach(filters, function(value, key) {
+  Vue.filter(key, value);
+});
 
 /* eslint-disable no-new */
 new Vue({
